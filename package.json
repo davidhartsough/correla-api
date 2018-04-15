@@ -1,0 +1,15 @@
+{
+  "name": "correla-api",
+  "version": "0.0.1",
+  "description": "The API for Correla",
+  "main": "index.js",
+  "repository": "https://github.com/davidhartsough/correla-api.git",
+  "author": "David Hartsough",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.8.2"
+  },
+  "scripts": {
+    "start": "node ."
+  }
+}

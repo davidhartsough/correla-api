@@ -1,0 +1,160 @@
+# Queries
+type Query {
+  person(id: ID!): Person
+  people: [Person]
+}
+
+# Mutations
+type Mutation {
+  createPerson(input: PersonInput!): Person
+  updatePerson(id: ID!, input: PersonInput!): Person
+  deletePerson(id: ID!): ID
+}
+
+# Types
+type Person {
+  id: ID!
+  username: String!
+  name: Name!
+  birthday: Birthday
+  gender: Gender
+  email: String
+  languages: [String]
+  links: [Link]
+  identities: [String!]!
+  values: [String!]!
+  missions: [Mission]
+  residences: [Residence]
+  roles: [Role]
+  projects: [Project]
+}
+
+type Name {
+  first: String!
+  last: String
+}
+
+type Birthday {
+  year: Int!
+  month: Int!
+  day: Int!
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+type Link {
+  name: String!
+  link: String!
+}
+
+type Mission {
+  contribution: String!
+  impact: String!
+  keywords: [String]
+}
+
+type Residence {
+  locale: Locale!
+  timeframe: Timeframe!
+}
+
+type Locale {
+  city: String!
+  state: String!
+}
+
+type Timeframe {
+  start: Int!
+  end: Int
+}
+
+type Role {
+  name: String!
+  organization: String!
+  timeframe: Timeframe
+  description: String
+}
+
+type Project {
+  name: String!
+  type: String!
+  description: String
+  timeframe: Timeframe!
+  links: [Link]
+  mission: Mission
+  tools: [String]
+}
+
+# Inputs
+input PersonInput {
+  username: String!
+  name: NameInput!
+  birthday: BirthdayInput!
+  gender: Gender
+  email: String
+  languages: [String]
+  links: [LinkInput]
+  identities: [String!]!
+  values: [String!]!
+  missions: [MissionInput]
+  residences: [ResidenceInput]
+  roles: [RoleInput]
+  projects: [ProjectInput]
+}
+
+input NameInput {
+  first: String!
+  last: String
+}
+
+input BirthdayInput {
+  year: Int!
+  month: Int!
+  day: Int!
+}
+
+input LinkInput {
+  name: String!
+  link: String!
+}
+
+input MissionInput {
+  contribution: String!
+  impact: String!
+  keywords: [String]
+}
+
+input ResidenceInput {
+  locale: LocaleInput!
+  timeframe: TimeframeInput!
+}
+
+input LocaleInput {
+  city: String!
+  state: String!
+}
+
+input TimeframeInput {
+  start: Int!
+  end: Int
+}
+
+input RoleInput {
+  name: String!
+  organization: String!
+  timeframe: TimeframeInput
+  description: String
+}
+
+input ProjectInput {
+  name: String!
+  type: String!
+  description: String
+  timeframe: TimeframeInput!
+  links: [LinkInput]
+  mission: MissionInput
+  tools: [String]
+}
